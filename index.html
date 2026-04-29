@@ -144,12 +144,12 @@
             text-align: center;
             margin-bottom: 25px; 
             font-family: 'Fira Code', monospace;
-            font-size: 15px; /* Ukuran diperbesar */
-            color: #ffffff; /* Diubah putih agar jelas */
-            text-shadow: 0 0 8px var(--cp-blue); /* Efek glow */
+            font-size: 15px; 
+            color: #ffffff; 
+            text-shadow: 0 0 8px var(--cp-blue); 
             font-weight: 900;
             line-height: 1.8;
-            background: rgba(0, 170, 255, 0.15); /* Kotak background tipis */
+            background: rgba(0, 170, 255, 0.15); 
             padding: 15px;
             border-radius: 8px;
             border: 1px solid var(--cp-blue);
@@ -183,23 +183,23 @@
         <div class="content">
             <div class="header-line">
                 <span class="user-name" id="out-name">JANGAN DISEBAR</span>
-                <img src="centang_biru.png" id="out-v" class="active">
+                <img src="Centang_biru.png" id="out-v" class="active">
                 <span style="color: var(--fb-gray); font-size: 13px;">·</span>
                 <div class="meta-group">
                     <span id="out-time">1m</span> <span style="margin: 0 1px;">·</span>
-                    <img src="pengirim_header.png" class="star-header-icon"> 
+                    <img src="Pengirim_header.png" class="star-header-icon"> 
                     <span id="out-star-sender">Star sender</span>
                 </div>
             </div>
             <div class="comment-text" id="out-comment">Jangan Di sebar Resiko tanggung sendiri</div>
             
             <div class="gift-wrapper">
-                <img src="naga.png" id="out-gift-img" class="gift-img">
+                <img src="Naga.png" id="out-gift-img" class="gift-img">
                 <div class="gift-bar">
-                    <img src="bintang_ikon.png" class="icon-star-mini">
+                    <img src="Bintang_ikon.png" class="icon-star-mini">
                     <span id="out-gift-text">Sent 100 Stars</span>
                     <span style="margin: 0 1px;">·</span>
-                    <img src="api_ikon.png" class="icon-fire-mini">
+                    <img src="Api_ikon.png" class="icon-fire-mini">
                     <span id="out-streak">14 weeks</span>
                 </div>
             </div>
@@ -208,13 +208,13 @@
                 <div class="footer-left">
                     <span id="out-action-reply">Reply</span>
                     <div class="like-counter" style="margin-left:5px;">
-                        <img src="like_biru.png" class="icon-like-blue">
+                        <img src="Like_biru.png" class="icon-like-blue">
                         <span id="out-likes">1</span>
                     </div>
                 </div>
                 <div class="footer-right">
-                    <img src="jempol_outline.png" class="icon-action-gray">
-                    <img src="dislike_outline.png" class="icon-action-gray">
+                    <img src="Jempol_outline.png" class="icon-action-gray">
+                    <img src="Dislike_outline.png" class="icon-action-gray">
                 </div>
             </div>
             <div class="replies-section">
@@ -271,15 +271,13 @@
         <div class="f-group">
             <label>Select Gift</label>
             <select id="in-gift" onchange="syncGiftValue()">
-                <option value="sepatu.png|50">Shoe (50)</option>
-                <option value="naga.png|100" selected>Dragon (100)</option>
-                <option value="metal.png|200">Metal (200)</option>
-                <option value="ufo.png|300">Ufo (300)</option>
-                <option value="dua_jari_live.png|500">Peace Sign Live (500)</option>
-                <option value="naga_live.png|1000">Dragon Live (1000)</option>
-                <option value="otot_live.png|1000">Muscle Live (1000)</option>
-                <option value="topeng_live.png|1000">Mask Live (1000)</option>
-                <option value="blink2.png|1000">Blinks (1000)</option>
+                <option value="Sepatu.png|50">Shoe (50)</option>
+                <option value="Naga.png|100" selected>Dragon (100)</option>
+                <option value="Metal.png|200">Metal (200)</option>
+                <option value="ufo.png|300">Ufo (300)</option> <option value="Dua_jari_live.png|500">Peace Sign Live (500)</option>
+                <option value="_Naga_live.png|1000">Dragon Live (1000)</option> <option value="Otot_live.png|1000">Muscle Live (1000)</option>
+                <option value="Topeng_live.png|1000">Mask Live (1000)</option>
+                <option value="Blink2.png|1000">Blinks (1000)</option>
             </select>
         </div>
 
@@ -336,17 +334,14 @@
         }
 
         function update() {
-            // Cek Bahasa
             const isID = document.getElementById('in-lang').value === 'id';
 
-            // Update Label Statis Sesuai Bahasa
             document.getElementById('out-star-sender').innerText = isID ? "Pengirim Bintang" : "Star sender";
             document.getElementById('out-action-reply').innerText = isID ? "Balas" : "Reply";
             document.getElementById('out-action-view').innerText = isID ? "Lihat" : "View";
 
             document.getElementById('out-name').innerText = document.getElementById('in-name').value;
             
-            // Format waktu sesuai bahasa
             const timeVal = document.getElementById('in-time-val').value;
             const timeUnit = document.getElementById('in-time-unit').value;
             let tStr = "";
@@ -360,7 +355,6 @@
                 document.getElementById('out-time').innerText = timeVal + timeUnit;
             }
 
-            // Tag Biru
             const rawComment = document.getElementById('in-comment').value;
             let safeComment = rawComment.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
             const formattedComment = safeComment.replace(/@([^\s]+)/g, '<span class="fb-mention">$1</span>');
@@ -368,7 +362,6 @@
 
             document.getElementById('out-likes').innerText = document.getElementById('in-likes').value;
             
-            // Logika jamak untuk kata "reply/replies" & "balasan"
             const repliesVal = document.getElementById('in-replies').value;
             document.getElementById('out-replies').innerText = repliesVal;
             if(isID) {
@@ -377,7 +370,6 @@
                 document.getElementById('out-replies-text').innerText = (repliesVal == 1) ? "reply" : "replies";
             }
 
-            // Logika Streak Sesuai Bahasa
             const streakVal = document.getElementById('in-streak-val').value;
             if(isID) {
                 document.getElementById('out-streak').innerText = streakVal + " minggu";
@@ -385,7 +377,6 @@
                 document.getElementById('out-streak').innerText = streakVal + (streakVal == 1 ? " week" : " weeks");
             }
 
-            // Toggle centang biru
             if(document.getElementById('in-verify').checked) {
                 document.getElementById('out-v').classList.add('active');
                 document.getElementById('out-v').nextElementSibling.style.display = 'inline';
@@ -394,11 +385,9 @@
                 document.getElementById('out-v').nextElementSibling.style.display = 'none';
             }
 
-            // Logika Hadiah & Bintang Sesuai Bahasa + Format Titik (Ribuan)
             const gift = document.getElementById('in-gift').value.split('|');
             const customStarsInput = document.getElementById('in-gift-custom').value;
             
-            // Format angka dengan titik (1.000)
             const formattedStars = Number(customStarsInput).toLocaleString('id-ID');
             
             document.getElementById('out-gift-img').src = gift[0];
@@ -427,3 +416,4 @@
     </script>
 </body>
 </html>
+
